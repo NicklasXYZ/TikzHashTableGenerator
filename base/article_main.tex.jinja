@@ -1,0 +1,65 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Document class                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\documentclass{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Preamble                                                         %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Required packages                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{tikz} % For including tikz illustrations
+\usepackage{color}% For coloring parts of the tikz illustrations
+% Define colors
+\definecolor{green}{RGB}{34, 139, 34} % Collision
+\definecolor{red}{RGB}{255,  0,  0}   % Inserted
+% Tikz hash table elements and styling
+\input{
+    {%- if tikz_style -%}
+        {{ tikz_style }}
+    {%- endif -%}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% User-defined settings                                            %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\title{Your Document Title}
+\author{You}
+\date{Date of Document Creation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Document start                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\begin{document}
+
+    % Title page
+    \maketitle
+
+    % Uncomment these lines for an automatically generated outline.
+    % \tableofcontents
+
+    \clearpage
+
+    \section{Hash Table: Inserting Keys}
+
+    {% for i in range(steps | length) %}
+        % Include tikzpicture:
+        \begin{figure}[H]
+            \centering
+            \scalebox{ {{ scale }} }{
+                \input{
+                    {%- if tikz_style -%}
+                        {{ steps[i + 1] }}
+                    {%- endif -%}
+                }
+            }
+        \end{figure}
+    {% endfor %}
+
+\end{document}

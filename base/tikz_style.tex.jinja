@@ -1,0 +1,47 @@
+\usetikzlibrary{matrix, backgrounds, positioning}
+\tikzset{
+    columnlabel/.style={
+        minimum size = 0pt,
+        draw = none,
+    },      
+    font=\ttfamily,
+    array/.style={
+        matrix of nodes,
+        nodes = arraynode,
+        column sep = -\pgflinewidth,
+        row sep = -\pgflinewidth, 
+        nodes in empty cells,
+        row 1/.style={nodes=columnlabel},
+    },
+    rowlabel/.style={
+        inner sep = 2pt,
+        draw = none,
+        font = \small\ttfamily,
+        node contents = {\the\numexpr-1+\pgfmatrixcurrentcolumn\relax},
+        alias = m\the\numexpr-1+\pgfmatrixcurrentcolumn\relax
+    },
+    hashtable/.style={
+        matrix of nodes,
+        row 1/.style = {nodes = {draw, minimum size = 7mm}},
+        column sep = -\pgflinewidth,
+        row sep = -\pgflinewidth, 
+        nodes in empty cells,
+        row 2/.style = {nodes = rowlabel}
+    }, 
+    index/.style = {
+        matrix of nodes,
+        nodes = {draw, minimum size = 6mm, anchor = center},
+        row 1/.style={nodes = {columnlabel}},
+        column sep=-\pgflinewidth,
+        row sep=-\pgflinewidth, 
+        nodes in empty cells,
+    },
+    operation/.style={
+        matrix of nodes,
+        nodes = {draw = none, minimum size = 6mm, anchor = center},
+        row 1/.style = {nodes = {columnlabel, black}},
+        column sep = -\pgflinewidth,
+        row sep = -\pgflinewidth, 
+        nodes in empty cells,
+    }
+}
