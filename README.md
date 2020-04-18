@@ -8,11 +8,9 @@ Illustrations for searching and deleting keys might be added at a later time.
 **Note**: The purpose of the script is to be able to automatically create illustrations of simple constructed examples. In other words, the size of the table is fixed, as it should have a reasonable size to be able to fit into e.g. a LaTeX beamer or A4 document.
 
 ## Preview
-<center>
 
 ![](preview/main.gif)
 
-</center>
 # Dependencies
 
 - Python 3
