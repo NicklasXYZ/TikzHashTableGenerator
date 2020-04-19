@@ -31,14 +31,14 @@ class HashTable:
         self.event_counter = 0
 
     def bulk_insert(self, keys):
-        """ Insert the keys in the given list into the hashtable
+        """ Insert the keys in the given list into the hash table
         """
         for k in keys:
             self.insert(k)
 
     def collision_resolution(self, k):
         """ Resolve possible collisions with keys that are
-        already present in the hashtable
+        already present in the hash table
         """
         i = 0
         index = self.hash_function(k, i)
@@ -93,7 +93,7 @@ class HashTable:
             self.history[self.event_counter] = {
                 # The key to be inserted
                 "k": k,
-                # Create a copy of the current state of the hashtable
+                # Create a copy of the current state of the hash table
                 "hashtable": temp_keys,
                 # Collect occupied indices, i.e., the indices where there were collisions
                 "indices": indices[0:t],
@@ -113,18 +113,18 @@ if __name__ == "__main__":
         ######################################
         #### Example 1: Linear probing    ####
         ######################################
-        # Specify the size of the hashtable
+        # Specify the size of the hash table
         size = 11
-        # Define a list of keys to be inserted into the hashtable
+        # Define a list of keys to be inserted into the hash table
         values = [67, 20, 17, 33, 16, 2, 15, 18, 26]
         # Specify the complete hash function 
         hash_function = lambda k, i: (((7 * k  + 4) % size) + i) % size 
-        # Create the hashtable and supply the hash function as an argument
+        # Create the hash table and supply the hash function as an argument
         hashtable = HashTable(size = size, hash_function = hash_function)
         # Insert all the keys
         hashtable.bulk_insert(values)
-        # Print out the final hashtable along with the history of collisions/insertions
-        print("\nFinal hashtable: ", hashtable.keys)
+        # Print out the final hash table along with the history of collisions/insertions
+        print("\nFinal hash table: ", hashtable.keys)
         print()
         for step in hashtable.history:
             print("Step: ", step, "Event history  : ", hashtable.history[step])
@@ -133,18 +133,18 @@ if __name__ == "__main__":
         ######################################
         #### Example 2: Quadratic probing ####
         ######################################
-        # Specify the size of the hashtable
+        # Specify the size of the hash table
         size = 11
-        # Define a list of keys to be inserted into the hashtable
+        # Define a list of keys to be inserted into the hash table
         values = [10, 22, 31, 4, 15, 28, 17, 88, 59]
         # Specify the complete hash function 
         hash_function = lambda k, i: ((k % size) + 1 * i + 3 * i ** 2) % size 
-        # Create the hashtable and supply the hash function as an argument
+        # Create the hash table and supply the hash function as an argument
         hashtable = HashTable(size = size, hash_function = hash_function)
         # Insert all the keys
         hashtable.bulk_insert(values)
-        # Print out the final hashtable along with the history of collisions/insertions
-        print("\nFinal hashtable: ", hashtable.keys)
+        # Print out the final hash table along with the history of collisions/insertions
+        print("\nFinal hash table: ", hashtable.keys)
         print()
         for step in hashtable.history:
             print("Step: ", step, "Event history  : ", hashtable.history[step])
@@ -153,18 +153,18 @@ if __name__ == "__main__":
         ######################################
         #### Example 3: Doubke hashing    ####
         ######################################
-        # Specify the size of the hashtable
+        # Specify the size of the hash table
         size = 11
-        # Define a list of keys to be inserted into the hashtable
+        # Define a list of keys to be inserted into the hash table
         values = [10, 22, 31, 4, 15, 28, 17, 88, 59]
         # Specify the complete hash function 
         hash_function = lambda k, i: ((k % size) + i * (1 + (k % (size - 1)))) % size 
-        # Create the hashtable and supply the hash function as an argument
+        # Create the hash table and supply the hash function as an argument
         hashtable = HashTable(size = size, hash_function = hash_function)
         # Insert all the keys
         hashtable.bulk_insert(values)
-        # Print out the final hashtable along with the history of collisions/insertions
-        print("\nFinal hashtable: ", hashtable.keys)
+        # Print out the final hash table along with the history of collisions/insertions
+        print("\nFinal hash table: ", hashtable.keys)
         print()
         for step in hashtable.history:
             print("Step: ", step, "Event history  : ", hashtable.history[step])

@@ -3,7 +3,7 @@ from HashTableRenderer import HashTableRenderer
 ######################################
 #     Example 1: Linear probing      #
 ######################################
-# Specify the size of the hashtable
+# Specify the size of the hash table
 size = 11
 
 # Define the list of keys to be inserted into the table
@@ -12,7 +12,7 @@ values = [67, 20, 17, 33, 16, 2, 15, 18, 26]
 # Specify the complete hash function and thus the probing strategy
 hash_function = lambda k, i: (((7 * k  + 4) % size) + i) % size 
 
-# Create the hashtable and supply the hash function as an argument
+# Create the hash table and supply the hash function as an argument
 hashtable = HashTableRenderer(size = size, hash_function = hash_function)
 
 # Insert all the keys

@@ -22,12 +22,12 @@ import jinja2
 class HashTableRenderer(HashTable):
     """
     A simple class for rendering a set of pre-specified jinja templates (located
-    in the ./base directory) to a set of Tikz illustrations.
+    in the ./base directory) to a set of TikZ illustrations.
 
     The jinja templates use the insertion/search events generated within the 
     "HashTable" class.
 
-    The Tikz illustrations are compiled into a final "main.tex" document, which
+    The TikZ illustrations are compiled into a final "main.tex" document, which
     can be converted into e.g. a LaTeX beamer presentation. 
     """
 
@@ -38,7 +38,7 @@ class HashTableRenderer(HashTable):
 
     def render(self, template_dir = "base", output_dir = "output", file_prefix = "",
         beamer = True, scale = 1):
-        """ Render all jinja templates, i.e., generate Tikz illustrations and
+        """ Render all jinja templates, i.e., generate TikZ illustrations and
         compile these into a final "main.tex" documents loacted in the "output_dir"
         """
         # Load jinja templates
@@ -75,7 +75,7 @@ class HashTableRenderer(HashTable):
     def render_templates(self, jinja_templates, output_dir, beamer, scale, prefix):
         """
         """
-        # Keep a history of all the Tikz illustrations generated (there is a Tikz
+        # Keep a history of all the TikZ illustrations generated (there is a TikZ
         # illustration for each inserted or searched key)
         steps = {}
         ### Illustrations for all insertion operations
@@ -95,9 +95,11 @@ class HashTableRenderer(HashTable):
             )
             steps[step] = illustration_name.split(".")[0]
         ### Illustrations for all searching operations
-        # TODO: -
-        ### Render tikz style template
-        output_file = os.path.join(output_dir, "tikz_style.tex")
+        # TODO: Generate illustrations for all searching operations
+        ### Illustrations for all deletion operations
+        # TODO: Generate illustrations for all deletion operations
+        ### Render TikZ style template
+        output_file = os.path.join(output_dir, "TikZ_style.tex")
         template_vars = {}
         self.render_template(
             jinja_templates,
@@ -124,7 +126,7 @@ class HashTableRenderer(HashTable):
         )
 
     def create_directories(self, output_dir):
-        """ Generate directories
+        """ Create directories
         """
         # Create required output directories if they're missing
         if not os.path.exists(output_dir):

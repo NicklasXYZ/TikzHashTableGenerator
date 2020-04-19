@@ -14,7 +14,7 @@ Illustrations for searching and deleting keys might be added at a later time.
 # Dependencies
 
 - Python 3
-- [jinja2](https://jinja.palletsprojects.com): A templating language for Python
+- [jinja2](https://jinja.palletsprojects.com): A templating language for Python. The library can be installed through `pip` by running: `pip install jinja2`
 - LaTeX & TikZ: To subsequently be able to compile the illustrations into a .pdf document. For Linux LaTeX distributions, see e.g. [Ubuntu LaTeX packages](https://packages.ubuntu.com/search?keywords=texlive) or [Arch Linux LaTeX packages](https://wiki.archlinux.org/index.php/TeX_Live).
 
 **Note**: The script has only been tested on a Linux system (Manjaro).
@@ -23,10 +23,10 @@ Illustrations for searching and deleting keys might be added at a later time.
 
 - First of all clone the repository to some local directory:
 ```
-git clone https://github.com/NicklasXYZ/TikzHashTableGenerator && cd TikzHashTableGenerator
+git clone https://github.com/NicklasXYZ/TikzHashTableGenerator
 ```
 
-- Create and save a Python script inside the `TikzHasTableGenerator`, which contains something along the lines of:
+- Create and save a Python script inside the `TikzHasTableGenerator` directory, which contains something along the lines of:
 
 ```python
 # Contents of the "example.py" file
@@ -35,7 +35,7 @@ from HashTableRenderer import HashTableRenderer
 ######################################
 #     Example 1: Linear probing      #
 ######################################
-# Specify the size of the hashtable
+# Specify the size of the hash table
 size = 11
 
 # Define the list of keys to be inserted into the table
@@ -44,7 +44,7 @@ values = [67, 20, 17, 33, 16, 2, 15, 18, 26]
 # Specify the complete hash function and thus the probing strategy
 hash_function = lambda k, i: (((7 * k  + 4) % size) + i) % size 
 
-# Create the hashtable and supply the hash function as an argument
+# Create the hash table and supply the hash function as an argument
 hashtable = HashTableRenderer(size = size, hash_function = hash_function)
 
 # Insert all the keys
