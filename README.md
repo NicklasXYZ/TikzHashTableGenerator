@@ -11,7 +11,7 @@ Illustrations for searching and deleting keys might be added at a later time.
 
 ![](preview/main.gif)
 
-# Dependencies
+## Dependencies
 
 - Python 3
 - [jinja2](https://jinja.palletsprojects.com): A templating language for Python. The library can be installed through `pip` by running: `pip install jinja2`
@@ -19,7 +19,7 @@ Illustrations for searching and deleting keys might be added at a later time.
 
 **Note**: The script has only been tested on a Linux system (Manjaro).
 
-# Usage
+## Usage
 
 - First of all clone the repository to some local directory:
 ```
